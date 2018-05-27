@@ -48,16 +48,11 @@ class App extends Component {
       cursor: 'pointer'
     };
 
-    return (
-      <div className="App">
-        <h1>Hi, I'm a react App! </h1>
-        <p> Is this really working? </p>
-        <button // INEFFICIENT - DO NOT USE
-         style={style}
-         onClick={() => this.togglePersonsHandler()}>Switch Name
-        </button>
-        { this.state.showPersons === true ?
-          <div>
+    let persons = null;
+
+    if(this.state.showPersons) {
+      persons = (
+        <div>
           <Person
             name={this.state.persons[0].name}
             age={this.state.persons[0].age}/>
@@ -70,8 +65,19 @@ class App extends Component {
           <Person
             name={this.state.persons[2].name}
             age={this.state.persons[2].age}/>
-          </div> : null
-        }
+          </div>
+      );
+    }
+
+    return (
+      <div className="App">
+        <h1>Hi, I'm a react App! </h1>
+        <p> Is this really working? </p>
+        <button // INEFFICIENT - DO NOT USE
+         style={style}
+         onClick={() => this.togglePersonsHandler()}>Switch Name
+        </button>
+        {persons}
       </div>
     );
   }

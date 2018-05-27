@@ -11,7 +11,7 @@ class App extends Component {
       { name: 'Stephanie', age:30 }
     ],
     otherState: 'Some other value',
-    showPersons: false
+    showPersons: true
   }
 
   switchNameHandler = (newName) => {
@@ -35,7 +35,8 @@ class App extends Component {
   }
 
   togglePersonsHandler = () => {
-
+    const doesShow = this.state.showPersons;
+    this.setState({showPersons: !doesShow});
   }
 
   render() {
@@ -53,7 +54,7 @@ class App extends Component {
         <p> Is this really working? </p>
         <button // INEFFICIENT - DO NOT USE
          style={style}
-         onClick={() => this.togglePersonsHandler}>Switch Name
+         onClick={() => this.togglePersonsHandler()}>Switch Name
         </button>
         { this.state.showPersons === true ?
           <div>

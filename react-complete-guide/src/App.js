@@ -33,12 +33,23 @@ class App extends Component {
   }
 
   render() {
+    const style = {
+      backgroundColor: 'white',
+      font: 'inherit',
+      border: '1x solid blue',
+      padding: '8px',
+      cursor: 'pointer'
+    };
+
     return (
       <div className="App">
         <h1>Hi, I'm a react App! </h1>
         <p> Is this really working? </p>
         <button // INEFFICIENT - DO NOT USE
-         onClick={() => this.switchNameHandler('Test')}>Switch Name</button>
+         style={style}
+         onClick={() => this.switchNameHandler('Test')}>Switch Name
+
+        </button>
         <Person
           name={this.state.persons[0].name}
           age={this.state.persons[0].age}/>

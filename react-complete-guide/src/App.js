@@ -9,7 +9,9 @@ class App extends Component {
       { name: 'Max', age:28 },
       { name: 'Manu', age:29 },
       { name: 'Stephanie', age:30 }
-    ]
+    ],
+    otherState: 'Some other value',
+    showPersons: false
   }
 
   switchNameHandler = (newName) => {
@@ -32,6 +34,10 @@ class App extends Component {
     })
   }
 
+  togglePersonsHandler = () => {
+
+  }
+
   render() {
     const style = {
       backgroundColor: 'white',
@@ -47,21 +53,24 @@ class App extends Component {
         <p> Is this really working? </p>
         <button // INEFFICIENT - DO NOT USE
          style={style}
-         onClick={() => this.switchNameHandler('Test')}>Switch Name
-
+         onClick={() => this.togglePersonsHandler}>Switch Name
         </button>
-        <Person
-          name={this.state.persons[0].name}
-          age={this.state.persons[0].age}/>
-        <Person
-          name={this.state.persons[1].name}
-          age={this.state.persons[1].age}
-          // Try and use this syntax
-          click={this.switchNameHandler.bind(this, 'Yad!!!!')}
-          changed={this.nameChangedHandler}> My Hobbies: Cycling</Person>
-        <Person
-          name={this.state.persons[2].name}
-          age={this.state.persons[2].age}/>
+        { this.state.showPersons ?
+          <div>
+          <Person
+            name={this.state.persons[0].name}
+            age={this.state.persons[0].age}/>
+          <Person
+            name={this.state.persons[1].name}
+            age={this.state.persons[1].age}
+            // Try and use this syntax
+            click={this.switchNameHandler.bind(this, 'Yad!!!!')}
+            changed={this.nameChangedHandler}> My Hobbies: Cycling</Person>
+          <Person
+            name={this.state.persons[2].name}
+            age={this.state.persons[2].age}/>
+          </div> : null
+        }
       </div>
     );
   }

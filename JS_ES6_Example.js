@@ -1,5 +1,8 @@
 class Human {
-  gender = 'Male';
+  constructor() {
+    this.gender = 'Male';
+  }
+
 
   printGender() {
     console.log(this.gender);
@@ -7,7 +10,12 @@ class Human {
 }
 
 class Person extends Human{
-  name = 'Yadnyesh';
+
+  constructor(){
+    super();
+    this.name = 'Yadnyesh';
+  }
+
 
   printMyName() {
     console.log(this.name);
@@ -18,3 +26,7 @@ class Person extends Human{
 const myPerson = new Person();
 myPerson.printMyName();
 myPerson.printGender();
+
+const numbers = [1,2,3];
+const doubleMyNumbers = numbers.map((num) => {return num *2; });
+console.log(doubleMyNumbers);

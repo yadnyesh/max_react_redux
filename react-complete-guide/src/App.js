@@ -11,7 +11,7 @@ class App extends Component {
       { id: 3, name: 'Stephanie', age:30 }
     ],
     otherState: 'Some other value',
-    showPersons: true
+    showPersons: false
   }
 
   nameChangedHandler = (event, id) => {
@@ -42,7 +42,8 @@ class App extends Component {
 
   render() {
     const style = {
-      backgroundColor: 'white',
+      backgroundColor: 'green',
+      color: 'white',
       font: 'inherit',
       border: '1x solid blue',
       padding: '8px',
@@ -65,6 +66,8 @@ class App extends Component {
           })}
         </div>
       );
+
+      style.backgroundColor = 'red';
     }
 
     return (

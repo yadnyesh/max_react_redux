@@ -70,10 +70,12 @@ class App extends Component {
       style.backgroundColor = 'red';
     }
 
+    let classes = ['red', 'bold'].join(' ');
+
     return (
       <div className="App">
         <h1>Hi, I'm a react App! </h1>
-        <p> Is this really working? </p>
+        <p className={classes}> Is this really working? </p>
         <button // INEFFICIENT - DO NOT USE
          style={style}
          onClick={() => this.togglePersonsHandler()}>Switch Name

@@ -41,15 +41,9 @@ class App extends Component {
   }
 
   render() {
-    const style = {
-      backgroundColor: 'green',
-      color: 'white',
-      font: 'inherit',
-      border: '1x solid blue',
-      padding: '8px'
-    };
 
     let persons = null;
+    let btnClass = '';
 
     if(this.state.showPersons) {
       persons = (
@@ -65,8 +59,7 @@ class App extends Component {
           })}
         </div>
       );
-
-      style.backgroundColor = 'red';
+      btnClass = classes.Red;
     }
 
     let assignedclasses = [];
@@ -83,8 +76,8 @@ class App extends Component {
         <div className={classes.App}>
           <h1>Hi, I'm a react App! </h1>
           <p className={assignedclasses.join(' ')}> Is this really working? </p>
-          <button // INEFFICIENT - DO NOT USE
-          style={style}
+          <button
+          className={btnClass}
           onClick={() => this.togglePersonsHandler()}>Switch Name
           </button>
           {persons}

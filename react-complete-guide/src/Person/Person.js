@@ -5,9 +5,9 @@ const person = (props) => {
 
   const person = Math.random();
 
-  if (person > 0.6) {
-    throw new Error('Something went wrong');
-  }
+  // if (person > 0.6) {
+  //   throw new Error('Something went wrong');
+  // }
 
   return (
     <div className={classes.Person}>

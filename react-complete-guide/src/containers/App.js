@@ -70,12 +70,7 @@ class App extends Component {
 
     return (
         <div className={classes.App}>
-          <h1>Hi, I'm a react App! </h1>
-          <p className={assignedclasses.join(' ')}> Is this really working? </p>
-          <button
-          className={btnClass}
-          onClick={() => this.togglePersonsHandler()}>Switch Name
-          </button>
+
           {persons}
         </div>
     );
